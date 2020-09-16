@@ -5,12 +5,14 @@ public class Customer {
     private long accountNumber;
     private long mobileNumber;
     private double accountBalance;
-    private Passbook passbook;
+    public Passbook passbook;
 
     public Customer(String customerName, long mobileNumber, long accountNumber) {
         this.customerName = customerName;
         this.mobileNumber = mobileNumber;
         this.accountNumber = accountNumber;
+        passbook.setCustomerName(customerName);
+        passbook.setAccountNumber(accountNumber);
     }
 
     public String getCustomerName() {
@@ -31,6 +33,14 @@ public class Customer {
 
     public Passbook getPassbook() {
         return passbook;
+    }
+
+    public void setAccountBalance(double accountBalance) {
+        this.accountBalance = accountBalance;
+    }
+
+    public double getAccountBalance() {
+        return accountBalance;
     }
 
     public void setPassbook(Passbook passbook) {

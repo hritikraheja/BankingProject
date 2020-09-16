@@ -21,4 +21,38 @@ public class Branch {
         numberOfCustomers++;
         System.out.println("Your Account Is Created Successfully.\nYour Account Number Is : " + customers[numberOfCustomers].getAccountNumber());
     }
+
+    public void addMoney(long accountNumber, double money) {
+        for(Customer customer : customers) {
+            boolean matched = false;
+            if(customer.getAccountNumber() == accountNumber){
+                customer.setAccountBalance(customer.getAccountBalance() + money);
+                customer.passbook.depositMoney(money);
+                matched = true;
+                System.out.println(money + " Added Successfully.");
+            }
+            if(!matched){
+                System.out.println("NO RECORD FOUND FOR THIS ACCOUNT NUMBER.");
+            }
+        }
+    }
+
+    public void takeMoney(long accountNumber, double money) {
+        for(Customer customer : customers) {
+            boolean matched = false;
+            if(customer.getAccountNumber()==accountNumber){
+                if(customer.getAccountBalance() > money) {
+                    customer.setAccountBalance(customer.getAccountBalance() - money);
+                    customer.passbook.withdrawMoney(money);
+                    matched = true;
+                    System.out.println(money + " Withdrawal Successfully.");
+                } else {
+                    System.out.println("Transaction Not Possible. Not Enough Money In The Account.");
+                }
+            }
+            if(!matched) {
+                System.out.println("NO RECORD FOUND FOR THIS ACCOUNT NUMBER.");
+            }
+        }
+    }
 }
