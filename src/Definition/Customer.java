@@ -48,6 +48,10 @@ public class Customer {
         return pinNumber;
     }
 
+    public long getMobileNumber(){
+        return mobileNumber;
+    }
+
     public void setPinNumber(int pinNumber) {
         this.pinNumber = pinNumber;
     }

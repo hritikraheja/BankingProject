@@ -44,5 +44,6 @@ BANKINGApp CLASS :
  3. Check Transaction History(Passbook).
  4. Create Account. 
  5. Change Pin Number.
- 6. Exit.
+ 6. Forgot Account Number ?
+ 7. Exit.
 ```
