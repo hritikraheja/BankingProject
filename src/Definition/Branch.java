@@ -37,7 +37,14 @@ public class Branch {
         }
     }
 
-    public void takeMoney(long accountNumber, double money) {
+    /**
+     * This method withdraws money from the account if the account number and pin matches.
+     *
+     * @param accountNumber The account number of the Customer.
+     * @param pinNumber Pin number of the given account.
+     * @param money Money to be withdrawn.
+     */
+    public void takeMoney(long accountNumber,int pinNumber,  double money) {
         for(Customer customer : customers) {
             boolean matched = false;
             if(customer.getAccountNumber()==accountNumber){
@@ -56,10 +63,15 @@ public class Branch {
         }
     }
 
-    public void printTransactionHistory(long accountNumber){
+    /**
+     * This method prints all the transaction associated with the given account number.
+     *
+     * @param accountNumber The Account Number of the Customer.
+     */
+    public void printTransactionHistory(long accountNumber, int pinNumber){
         for(Customer customer : customers) {
             boolean matched = false;
-            if (customer.getAccountNumber() == accountNumber) {
+            if (customer.getAccountNumber() == accountNumber && customer.getPinNumber()==pinNumber) {
                 customer.passbook.toString();
                 System.out.println("Final Account Balance : " + customer.getAccountBalance());
                 matched = true;

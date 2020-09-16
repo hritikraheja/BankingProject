@@ -43,5 +43,6 @@ BANKINGApp CLASS :
  2. Withdraw Money.
  3. Check Transaction History(Passbook).
  4. Create Account. 
- 5. Exit.
+ 5. Change Pin Number.
+ 6. Exit.
 ```

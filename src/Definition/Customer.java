@@ -3,6 +3,7 @@ package Definition;
 public class Customer {
     private String customerName;
     private long accountNumber;
+    private int pinNumber = 1234;
     private long mobileNumber;
     private double accountBalance;
     public Passbook passbook;
@@ -41,6 +42,14 @@ public class Customer {
 
     public double getAccountBalance() {
         return accountBalance;
+    }
+
+    public int getPinNumber() {
+        return pinNumber;
+    }
+
+    public void setPinNumber(int pinNumber) {
+        this.pinNumber = pinNumber;
     }
 
     public void setPassbook(Passbook passbook) {
