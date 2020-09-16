@@ -29,4 +29,6 @@ BRANCH CLASS :
 9. Create necessary methods for deposit, withdrawal, check balance and transaction history of the Customer.
 
 BANKINGApp CLASS :
+1. Create an interface for the Customer to interact. 
+2. Create a Branch object.
  
