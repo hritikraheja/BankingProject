@@ -55,4 +55,18 @@ public class Branch {
             }
         }
     }
+
+    public void printTransactionHistory(long accountNumber){
+        for(Customer customer : customers) {
+            boolean matched = false;
+            if (customer.getAccountNumber() == accountNumber) {
+                customer.passbook.toString();
+                System.out.println("Final Account Balance : " + customer.getAccountBalance());
+                matched = true;
+            }
+            if(!matched) {
+                System.out.println("NO RECORD FOUND FOR THIS ACCOUNT NUMBER.");
+            }
+        }
+    }
 }
