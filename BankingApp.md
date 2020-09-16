@@ -18,7 +18,7 @@ CUSTOMER CLASS :
 5. Override the toString() method to return details of the Customer.
 
 BRANCH CLASS :
-1. Each Branch has a String name , String Ifsc code , String manager name , int number of customers associated with the bank and double revenue.
+1. Each Branch has a String bank name, String branch name , String Ifsc code , String manager name , int number of customers associated with the bank and double revenue.
 2. All fields are private and encapsulated.
 3. Initialisation is  donne by constructors.
 4. Override the toString() method to return the details of the Branch.
@@ -32,3 +32,15 @@ BANKINGApp CLASS :
 1. Create an interface for the Customer to interact. 
 2. Create a Branch object.
  
+ PROGRAM INTERFACE :
+ 
+ Here is a sample of the `BankingApp` class output.
+ 
+ ```
+ -=-=--=-=-"Welcome To The Front Desk"-=-=--=-=-
+ How may I help you today?
+ 1. Deposit Money.
+ 2. Withdraw Money.
+ 3. Check Transaction History(Passbook).
+ 4. Exit.
+```
