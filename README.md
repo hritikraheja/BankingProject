@@ -6,7 +6,7 @@ Here are the details of the classes that need to be implemented:
 4. a `BankingApp` class, to allow a Customer to interact with the Library.
 
 PASSBOOK CLASS: 
-1. Every Passbook has long account number, String Customer name, int[] withdrawals and int[] deposits.
+1. Every Passbook has long account number, String Customer name, double[] withdrawals and double[] deposits.
 2. Override the toString() method to return the Passbook page of the Customer.
 3. Initialisation is done by constructors.
 
