@@ -11,7 +11,7 @@ PASSBOOK CLASS:
 3. Initialisation is done by constructors.
 
 CUSTOMER CLASS :
-1. Each Customer has a String customer name, long account number, long mobile number and double account balance.
+1. Each Customer has a String customer name, long account number, long mobile number, Passbook object and double account balance.
 2. All fields are private and encapsulated.
 3. Initialisation is done by constructors.
 4. Make necessary methods.
