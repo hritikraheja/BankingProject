@@ -7,9 +7,10 @@ public class Customer {
     private double accountBalance;
     private Passbook passbook;
 
-    public Customer(String customerName, long mobileNumber) {
+    public Customer(String customerName, long mobileNumber, long accountNumber) {
         this.customerName = customerName;
         this.mobileNumber = mobileNumber;
+        this.accountNumber = accountNumber;
     }
 
     public String getCustomerName() {

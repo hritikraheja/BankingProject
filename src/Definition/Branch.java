@@ -15,4 +15,10 @@ public class Branch {
     private long generateAccountNumber(){
         return (long) 1469000350 + numberOfCustomers;
     }
+
+    public void addCustomer(String newCustomerName, long mobileNumber) {
+        customers[numberOfCustomers] = new Customer(newCustomerName, mobileNumber, generateAccountNumber());
+        numberOfCustomers++;
+        System.out.println("Your Account Is Created Successfully.\nYour Account Number Is : " + customers[numberOfCustomers].getAccountNumber());
+    }
 }
