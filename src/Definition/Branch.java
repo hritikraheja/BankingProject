@@ -5,8 +5,6 @@ public class Branch {
     private String branchName;
     Customer[] customers = new Customer[100];
     private int numberOfCustomers = 0;
-    private double revenue = 0.0;
-    public final double MINIMUM_BALANCE = 1000.0;
 
     public Branch(String branchName) {
         this.branchName = branchName;
@@ -50,6 +48,25 @@ public class Branch {
     }
 
     /**
+     * This method gives the pin number of the Customer, if forgotten.
+     *
+     * @param accountNumber Account number of the Customer.
+     * @param customerName Name of the Customer.
+     */
+    public void givePinNumber(long accountNumber, String customerName) {
+        boolean matched = false;
+        for(Customer customer : customers) {
+            if (customer.getAccountNumber() == accountNumber && customer.getCustomerName().equals(customerName)) {
+                System.out.println("Your Pin Number Is : " + customer.getPinNumber() + "\nDon't Share This With Anyone.");
+                matched = true;
+            }
+        }
+        if(!matched) {
+            System.out.println("No Record Found");
+        }
+    }
+
+    /**
      * This method is used to change the pin of Customer's Account.
      *
      * @param customerName Name of the Customer.
@@ -61,7 +78,12 @@ public class Branch {
         for(Customer customer : customers) {
             if(customer.getCustomerName().equals(customerName) && customer.getAccountNumber() == accountNumber) {
                 customer.setPinNumber(pinNumber);
+                System.out.println("Pin Reset Successful");
+                matched = true;
             }
+        }
+        if(!matched) {
+            System.out.println("No Record Found");
         }
     }
 

@@ -45,5 +45,6 @@ BANKINGApp CLASS :
  4. Create Account. 
  5. Change Pin Number.
  6. Forgot Account Number ?
- 7. Exit.
+ 7. Forgot Pin Number ?
+ 8. Exit.
 ```
