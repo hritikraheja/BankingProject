@@ -37,7 +37,7 @@ BANKINGApp CLASS :
  Here is a sample of the `BankingApp` class output.
  
  ```
- -=-=--=-=-"Welcome To The Front Desk"-=-=--=-=-
+ -=-=--=-=-=-=-=-=-"WELCOME"-=-=--=-=-=-=-=-=-
  How may I help you today?
  1. Deposit Money.
  2. Withdraw Money.

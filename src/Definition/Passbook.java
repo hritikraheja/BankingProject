@@ -29,11 +29,21 @@ public class Passbook {
         this.customerName = customerName;
     }
 
+    /**
+     * This method writes the details of deposit in the Passbook.
+     *
+     * @param money The money deposited in the account.
+     */
     public void depositMoney(double money) {
         deposits[numberOfDeposits] = money;
         numberOfDeposits++;
     }
 
+    /**
+     * This method writes the details of withdrawal in the Passbook.
+     *
+     * @param money The money withdrawn from the account.
+     */
     public void withdrawMoney(double money) {
         withdrawals[numberOfWithdrawals] = money;
         numberOfWithdrawals++;

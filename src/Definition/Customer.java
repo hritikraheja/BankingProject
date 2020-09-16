@@ -20,20 +20,8 @@ public class Customer {
         return customerName;
     }
 
-    public void setCustomerName(String customerName) {
-        this.customerName = customerName;
-    }
-
     public long getAccountNumber() {
         return accountNumber;
-    }
-
-    public void setAccountNumber(long accountNumber) {
-        this.accountNumber = accountNumber;
-    }
-
-    public Passbook getPassbook() {
-        return passbook;
     }
 
     public void setAccountBalance(double accountBalance) {
@@ -54,10 +42,6 @@ public class Customer {
 
     public void setPinNumber(int pinNumber) {
         this.pinNumber = pinNumber;
-    }
-
-    public void setPassbook(Passbook passbook) {
-        this.passbook = passbook;
     }
 
     @Override

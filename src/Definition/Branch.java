@@ -26,6 +26,8 @@ public class Branch {
         customers[numberOfCustomers] = new Customer(newCustomerName, mobileNumber, generateAccountNumber());
         numberOfCustomers++;
         System.out.println("Your Account Is Created Successfully.\nYour Account Number Is : " + customers[numberOfCustomers].getAccountNumber());
+        System.out.println("Pin For Your ACCOUNT IS " + customers[numberOfCustomers].getPinNumber());
+        System.out.println("Do Not Share This Pin With AnyOne And Change This As Soon As Possible");
     }
 
     /**
@@ -35,11 +37,30 @@ public class Branch {
      * @param mobileNumber Mobile Number of the Customer.
      */
     public void giveAccountNumber(String customerName, long mobileNumber) {
+        boolean matched = false;
         for(Customer customer : customers) {
-            if(customer.getCustomerName().equals(customerName) && customer.getMobileNumber() == mobileNumber) {
+            if (customer.getCustomerName().equals(customerName) && customer.getMobileNumber() == mobileNumber) {
                 System.out.println(customer.getAccountNumber());
-            } else {
-                System.out.println("NO ACCOUNT FOUND WITH THESE DETAILS.");
+                matched = true;
+            }
+        }
+        if(!matched) {
+                 System.out.println("NO ACCOUNT FOUND WITH THESE DETAILS.");
+        }
+    }
+
+    /**
+     * This method is used to change the pin of Customer's Account.
+     *
+     * @param customerName Name of the Customer.
+     * @param accountNumber Account Number of the Customer.
+     * @param pinNumber Change old pin number with this.
+     */
+    public void changePin(String customerName, long accountNumber, int pinNumber){
+        boolean matched = false;
+        for(Customer customer : customers) {
+            if(customer.getCustomerName().equals(customerName) && customer.getAccountNumber() == accountNumber) {
+                customer.setPinNumber(pinNumber);
             }
         }
     }
@@ -52,8 +73,8 @@ public class Branch {
      * @param money The money to be deposited.
      */
     public void addMoney(long accountNumber,int pinNumber, double money) {
+        boolean matched = false;
         for(Customer customer : customers) {
-            boolean matched = false;
             if(customer.getAccountNumber() == accountNumber && customer.getPinNumber() == pinNumber){
                 customer.setAccountBalance(customer.getAccountBalance() + money);
                 customer.passbook.depositMoney(money);
@@ -62,9 +83,9 @@ public class Branch {
             } else if (customer.getAccountNumber() ==accountNumber) {
                 System.out.println("INCORRECT PIN");
             }
-            if(!matched){
-                System.out.println("NO RECORD FOUND FOR THIS ACCOUNT NUMBER.");
             }
+        if(!matched){
+            System.out.println("NO RECORD FOUND FOR THIS ACCOUNT NUMBER.");
         }
     }
 
@@ -76,10 +97,10 @@ public class Branch {
      * @param money Money to be withdrawn.
      */
     public void takeMoney(long accountNumber,int pinNumber,  double money) {
+        boolean matched = false;
         for(Customer customer : customers) {
-            boolean matched = false;
-            if(customer.getAccountNumber()==accountNumber && customer.getPinNumber()==pinNumber){
-                if(customer.getAccountBalance() > money) {
+            if (customer.getAccountNumber() == accountNumber && customer.getPinNumber() == pinNumber) {
+                if (customer.getAccountBalance() > money) {
                     customer.setAccountBalance(customer.getAccountBalance() - money);
                     customer.passbook.withdrawMoney(money);
                     matched = true;
@@ -87,12 +108,12 @@ public class Branch {
                 } else {
                     System.out.println("Transaction Not Possible. Not Enough Money In The Account.");
                 }
-            } else if(customer.getAccountNumber() == accountNumber) {
+            } else if (customer.getAccountNumber() == accountNumber) {
                 System.out.println("INCORRECT PIN");
             }
+        }
             if(!matched) {
                 System.out.println("NO RECORD FOUND FOR THIS ACCOUNT NUMBER.");
-            }
         }
     }
 
@@ -102,18 +123,18 @@ public class Branch {
      * @param accountNumber The Account Number of the Customer.
      */
     public void printTransactionHistory(long accountNumber, int pinNumber){
+        boolean matched = false;
         for(Customer customer : customers) {
-            boolean matched = false;
-            if (customer.getAccountNumber() == accountNumber && customer.getPinNumber()==pinNumber) {
+            if (customer.getAccountNumber() == accountNumber && customer.getPinNumber() == pinNumber) {
                 customer.passbook.toString();
                 System.out.println("Final Account Balance : " + customer.getAccountBalance());
                 matched = true;
-            } else if(customer.getAccountNumber() == accountNumber) {
+            } else if (customer.getAccountNumber() == accountNumber) {
                 System.out.println("INCORRECT PIN");
             }
+        }
             if(!matched) {
                 System.out.println("NO RECORD FOUND FOR THIS ACCOUNT NUMBER.");
-            }
         }
     }
 }
