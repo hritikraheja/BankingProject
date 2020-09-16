@@ -36,4 +36,10 @@ public class Customer {
         this.passbook = passbook;
     }
 
+    @Override
+    public String toString() {
+        return "Customer Name : " + customerName + ", "
+                + "Account Number : " + accountNumber + ", "
+                    + "Mobile Number : " + mobileNumber;
+    }
 }

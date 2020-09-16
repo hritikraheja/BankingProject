@@ -44,10 +44,10 @@ public class Passbook {
         String depositString = "";
         String withdrawalString = "";
         for(int i = 0; i < numberOfDeposits; i++){
-            depositString += deposits[i];
+            depositString = depositString + ", "+  deposits[i];
         }
         for(int i = 0; i < numberOfWithdrawals; i++){
-            withdrawalString += withdrawals[i];
+            withdrawalString = withdrawalString + ", " +  withdrawals[i];
         }
         return "Customer Name : " + customerName + "\n"
                 + "Account Number : " + accountNumber + "\n"
