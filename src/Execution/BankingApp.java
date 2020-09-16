@@ -31,6 +31,62 @@ public class BankingApp {
                 clientInput = 0;
                 scannerObject.nextLine();
             }
+            switch (clientInput) {
+                case DEPOSIT_MONEY :
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.println("Enter Your Account Number : ");
+                    try {
+                        long accountNumber = scanner.nextLong();
+                        System.out.println("Enter 4-Digit Pin : ");
+                        int pinNumber = scanner.nextInt();
+                        System.out.println("Enter Amount That You Want To Deposit : ");
+                        double amount = scanner.nextDouble();
+                        b.addMoney(accountNumber,pinNumber,amount);
+                    } catch (Exception e) {
+                        System.out.println("Enter Details Properly.");
+                    }
+
+                    break;
+                case WITHDRAW_MONEY :
+                    scanner = new Scanner(System.in);
+                    try {
+                        System.out.println("Enter Your Account Number : ");
+                        long accountNumber = scanner.nextLong();
+                        System.out.println("Enter 4-Digit Pin : ");
+                        int pinNumber = scanner.nextInt();
+                        System.out.println("Enter Amount That You Want To Deposit : ");
+                        double amount = scanner.nextDouble();
+                        b.takeMoney(accountNumber, pinNumber, amount);
+                    } catch (Exception e) {
+                        System.out.println("ENTER DETAILS PROPERLY");
+                    }
+                    break;
+                case CHECK_TRANSACTION_HISTORY :
+                    scanner = new Scanner(System.in);
+                    try {
+                        System.out.println("Enter Your Account Number : ");
+                        long accountNumber = scanner.nextLong();
+                        System.out.println("Enter 4-Digit Pin : ");
+                        int pinNumber = scanner.nextInt();
+                        b.printTransactionHistory(accountNumber, pinNumber);
+                    } catch (Exception e) {
+                        System.out.println("ENTER DETAILS PROPERLY");
+                    }
+                    break;
+                case CREATE_ACCOUNT:
+                    scanner = new Scanner(System.in);
+                    System.out.println("Enter Your Name : ");
+                    String customerName = scanner.nextLine();
+                    try{
+                        System.out.println("Enter Your Mobile Number : ");
+                        long mobileNumber = scanner.nextLong();
+                        b.addCustomer(customerName,mobileNumber);
+                    } catch (InputMismatchException i) {
+                        System.out.println("Enter Correct Phone Number.");
+                    }
+                    break;
+                case CHANGE_PIN:
+            }
         }while(clientInput != EXIT);
     }
 }
