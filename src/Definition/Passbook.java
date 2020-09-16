@@ -1,7 +1,5 @@
 package Definition;
 
-import java.util.Arrays;
-
 public class Passbook {
     private long accountNumber;
     private String customerName;
@@ -43,9 +41,17 @@ public class Passbook {
 
     @Override
     public String toString() {
+        String depositString = "";
+        String withdrawalString = "";
+        for(int i = 0; i < numberOfDeposits; i++){
+            depositString += deposits[i];
+        }
+        for(int i = 0; i < numberOfWithdrawals; i++){
+            withdrawalString += withdrawals[i];
+        }
         return "Customer Name : " + customerName + "\n"
                 + "Account Number : " + accountNumber + "\n"
-                    + "Deposits : " + Arrays.toString(deposits) + "\n"
-                        + "Withdrawals" + Arrays.toString(withdrawals);
+                    + "Deposits : " + depositString + "\n"
+                        + "Withdrawals" + withdrawalString;
     }
 }
