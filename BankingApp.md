@@ -24,5 +24,9 @@ BRANCH CLASS :
 4. Override the toString() method to return the details of the Branch.
 5. Create a method that prints the transaction history of the Customer.
 6. Make a constant MINIMUM_BALANCE with value = 1000.
-7. Create a method to add a customer to a branch and return the customer's account number.
-8. Create necessary methods for deposit, withdrawal, check balance and transaction history. 
+7. Create a method to generate account number for a new Customer.
+8. Create a method to add a Customer to a branch and return the generated Customer's account number.
+9. Create necessary methods for deposit, withdrawal, check balance and transaction history of the Customer.
+
+BANKINGApp CLASS :
+ 
