@@ -4,6 +4,10 @@ public class Branch {
     public Customer[] customers = new Customer[100];
     private int numberOfCustomers = 0;
 
+    public int getNumberOfCustomers() {
+        return numberOfCustomers;
+    }
+
     private long generateAccountNumber(){
         return (long) 1469000350 + numberOfCustomers;
     }
@@ -97,6 +101,7 @@ public class Branch {
                 customers[i].setAccountBalance(customers[i].getAccountBalance() + money);
                 customers[i].passbook.depositMoney(money);
                 matched = true;
+                System.out.println(money + " Added Successfully");
             } else if (customers[i].getAccountNumber() ==accountNumber) {
                 System.out.println("INCORRECT PIN");
             }
@@ -124,9 +129,11 @@ public class Branch {
                     System.out.println(money + " Withdrawal Successfully.");
                 } else {
                     System.out.println("Transaction Not Possible. Not Enough Money In The Account.");
+                    matched = true;
                 }
             } else if (customers[i].getAccountNumber() == accountNumber) {
                 System.out.println("INCORRECT PIN");
+                matched = true;
             }
         }
             if(!matched) {

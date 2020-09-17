@@ -10,8 +10,8 @@ public class BankingApp {
     private static final int CHECK_TRANSACTION_HISTORY = 3;
     private static final int CREATE_ACCOUNT = 4;
     private static final int CHANGE_PIN = 5;
-    private static final int FORGOT_PIN = 6;
-    private static final int FORGOT_ACCOUNT_NUMBER = 7;
+    private static final int FORGOT_PIN = 7;
+    private static final int FORGOT_ACCOUNT_NUMBER = 6;
     private static final int EXIT = 8;
 
     public static void main(String[] args) {
@@ -33,6 +33,10 @@ public class BankingApp {
             }
             switch (clientInput) {
                 case DEPOSIT_MONEY :
+                    if(b.getNumberOfCustomers() == 0) {
+                        System.out.println("Create An Account First.");
+                        break;
+                    }
                     Scanner scanner = new Scanner(System.in);
                     System.out.println("Enter Your Account Number : ");
                     try {
@@ -48,13 +52,17 @@ public class BankingApp {
 
                     break;
                 case WITHDRAW_MONEY :
+                    if(b.getNumberOfCustomers() == 0) {
+                        System.out.println("Create An Account First.");
+                        break;
+                    }
                     scanner = new Scanner(System.in);
                     try {
                         System.out.println("Enter Your Account Number : ");
                         long accountNumber = scanner.nextLong();
                         System.out.println("Enter 4-Digit Pin : ");
                         int pinNumber = scanner.nextInt();
-                        System.out.println("Enter Amount That You Want To Deposit : ");
+                        System.out.println("Enter Amount That You Want To Withdraw : ");
                         double amount = scanner.nextDouble();
                         b.takeMoney(accountNumber, pinNumber, amount);
                     } catch (Exception e) {
@@ -62,6 +70,10 @@ public class BankingApp {
                     }
                     break;
                 case CHECK_TRANSACTION_HISTORY :
+                    if(b.getNumberOfCustomers() == 0) {
+                        System.out.println("Create An Account First.");
+                        break;
+                    }
                     scanner = new Scanner(System.in);
                     try {
                         System.out.println("Enter Your Account Number : ");
@@ -85,13 +97,17 @@ public class BankingApp {
                         System.out.println("Enter The Amount That You Want To Add : ");
                         double money = scanner.nextDouble();
                         b.addMoney(accountNumber,1234,money);
-                        System.out.println(money + " Added Successfully.\n Your Account Balance : " + money);
+                        System.out.println(" Your Account Balance : " + money);
 
                     } catch (InputMismatchException i) {
                         System.out.println("Enter Details Properly.");
                     }
                     break;
                 case CHANGE_PIN:
+                    if(b.getNumberOfCustomers() == 0) {
+                        System.out.println("Create An Account First.");
+                        break;
+                    }
                     scanner = new Scanner(System.in);
                     System.out.println("Enter Your Name : ");
                     customerName = scanner.nextLine();
@@ -106,7 +122,12 @@ public class BankingApp {
                     }
                     break;
                 case FORGOT_PIN:
+                    if(b.getNumberOfCustomers() == 0) {
+                        System.out.println("Create An Account First.");
+                        break;
+                    }
                     scanner = new Scanner(System.in);
+                    System.out.println("ENTER YOUR NAME");
                     customerName = scanner.nextLine();
                     try{
                         System.out.println("Enter Your Account Number : ");
@@ -117,12 +138,16 @@ public class BankingApp {
                     }
                     break;
                 case FORGOT_ACCOUNT_NUMBER :
+                    if(b.getNumberOfCustomers() == 0) {
+                        System.out.println("Create An Account First.");
+                        break;
+                    }
                     scanner = new Scanner(System.in);
                     customerName = scanner.nextLine();
                     try {
                         System.out.println("Enter Your Mobile Number : ");
                         long mobileNumber = scanner.nextLong();
-                        System.out.println(b.giveAccountNumber(customerName,mobileNumber));
+                        b.giveAccountNumber(customerName,mobileNumber);
                     } catch (InputMismatchException i) {
                         System.out.println("Enter Details Properly.");
                     }

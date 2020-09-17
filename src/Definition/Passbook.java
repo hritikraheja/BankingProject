@@ -38,14 +38,14 @@ public class Passbook {
         String depositString = "";
         String withdrawalString = "";
         for(int i = 0; i < numberOfDeposits; i++){
-            depositString = depositString.concat(", "+  deposits[i]);
+            depositString = depositString.concat(deposits[i] + ", ");
         }
         for(int i = 0; i < numberOfWithdrawals; i++){
-            withdrawalString = withdrawalString.concat(", " +  withdrawals[i]);
+            withdrawalString = withdrawalString.concat(withdrawals[i] + ", ");
         }
         return "Customer Name : " + customerName + "\n"
                 + "Account Number : " + accountNumber + "\n"
                     + "Deposits : " + depositString + "\n"
-                        + "Withdrawals" + withdrawalString;
+                        + "Withdrawals : " + withdrawalString;
     }
 }
