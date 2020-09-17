@@ -12,8 +12,7 @@ public class Customer {
         this.customerName = customerName;
         this.mobileNumber = mobileNumber;
         this.accountNumber = accountNumber;
-        passbook.setCustomerName(customerName);
-        passbook.setAccountNumber(accountNumber);
+        passbook = new Passbook(customerName, accountNumber);
     }
 
     public String getCustomerName() {

@@ -1,7 +1,6 @@
 package Execution;
 
 import Definition.Branch;
-
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -16,7 +15,8 @@ public class BankingApp {
     private static final int EXIT = 8;
 
     public static void main(String[] args) {
-        Branch b = new Branch("Kamla Nagar");
+        Branch b = new Branch();
+        System.out.println(b.toString());
         Scanner scannerObject = new Scanner(System.in);
         int clientInput;
         do{
@@ -41,9 +41,9 @@ public class BankingApp {
                         int pinNumber = scanner.nextInt();
                         System.out.println("Enter Amount That You Want To Deposit : ");
                         double amount = scanner.nextDouble();
-                        b.addMoney(accountNumber,pinNumber,amount);
+                        b.addMoney(accountNumber, pinNumber, amount);
                     } catch (Exception e) {
-                        System.out.println("Enter Details Properly.");
+                        System.out.println("Account Number And Password Didn't Matched");
                     }
 
                     break;
@@ -58,7 +58,7 @@ public class BankingApp {
                         double amount = scanner.nextDouble();
                         b.takeMoney(accountNumber, pinNumber, amount);
                     } catch (Exception e) {
-                        System.out.println("ENTER DETAILS PROPERLY");
+                        System.out.println("Account Number And Password Didn't Matched");
                     }
                     break;
                 case CHECK_TRANSACTION_HISTORY :
@@ -70,7 +70,7 @@ public class BankingApp {
                         int pinNumber = scanner.nextInt();
                         b.printTransactionHistory(accountNumber, pinNumber);
                     } catch (Exception e) {
-                        System.out.println("ENTER DETAILS PROPERLY");
+                        System.out.println("Account Number And Password Didn't Matched");
                     }
                     break;
                 case CREATE_ACCOUNT:
@@ -80,12 +80,57 @@ public class BankingApp {
                     try{
                         System.out.println("Enter Your Mobile Number : ");
                         long mobileNumber = scanner.nextLong();
-                        b.addCustomer(customerName,mobileNumber);
+                        long accountNumber = b.addCustomer(customerName,mobileNumber);
+                        System.out.println("Minimum Account Balance Is 1000Rs \n Add Some Money To Your Account(More Than 1000Rs) : ");
+                        System.out.println("Enter The Amount That You Want To Add : ");
+                        double money = scanner.nextDouble();
+                        b.addMoney(accountNumber,1234,money);
+                        System.out.println(money + " Added Successfully.\n Your Account Balance : " + money);
+
                     } catch (InputMismatchException i) {
-                        System.out.println("Enter Correct Phone Number.");
+                        System.out.println("Enter Details Properly.");
                     }
                     break;
                 case CHANGE_PIN:
+                    scanner = new Scanner(System.in);
+                    System.out.println("Enter Your Name : ");
+                    customerName = scanner.nextLine();
+                    System.out.println("Enter Your Account Number : ");
+                    try{
+                        long accountNumber = scanner.nextLong();
+                        System.out.println("Enter The Pin That You Want To Set :");
+                        int pinNumber = scanner.nextInt();
+                        b.changePin(customerName,accountNumber,pinNumber);
+                    } catch (InputMismatchException i) {
+                        System.out.println("Account Number And Name Didn't Matched.");
+                    }
+                    break;
+                case FORGOT_PIN:
+                    scanner = new Scanner(System.in);
+                    customerName = scanner.nextLine();
+                    try{
+                        System.out.println("Enter Your Account Number : ");
+                        long accountNumber = scanner.nextLong();
+                        b.givePinNumber(accountNumber,customerName);
+                    } catch (InputMismatchException i) {
+                        System.out.println("Account Number And Name Didn't Matched");
+                    }
+                    break;
+                case FORGOT_ACCOUNT_NUMBER :
+                    scanner = new Scanner(System.in);
+                    customerName = scanner.nextLine();
+                    try {
+                        System.out.println("Enter Your Mobile Number : ");
+                        long mobileNumber = scanner.nextLong();
+                        System.out.println(b.giveAccountNumber(customerName,mobileNumber));
+                    } catch (InputMismatchException i) {
+                        System.out.println("Enter Details Properly.");
+                    }
+                case EXIT:
+                    System.out.println("Exited Successfully.");
+                    break;
+                default:
+                    System.out.println("Enter Only Between (1-8)");
             }
         }while(clientInput != EXIT);
     }

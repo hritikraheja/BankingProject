@@ -13,22 +13,6 @@ public class Passbook {
         this.accountNumber = accountNumber;
     }
 
-    public long getAccountNumber() {
-        return accountNumber;
-    }
-
-    public void setAccountNumber(long accountNumber) {
-        this.accountNumber = accountNumber;
-    }
-
-    public String getCustomerName() {
-        return customerName;
-    }
-
-    public void setCustomerName(String customerName) {
-        this.customerName = customerName;
-    }
-
     /**
      * This method writes the details of deposit in the Passbook.
      *
@@ -54,10 +38,10 @@ public class Passbook {
         String depositString = "";
         String withdrawalString = "";
         for(int i = 0; i < numberOfDeposits; i++){
-            depositString = depositString + ", "+  deposits[i];
+            depositString = depositString.concat(", "+  deposits[i]);
         }
         for(int i = 0; i < numberOfWithdrawals; i++){
-            withdrawalString = withdrawalString + ", " +  withdrawals[i];
+            withdrawalString = withdrawalString.concat(", " +  withdrawals[i]);
         }
         return "Customer Name : " + customerName + "\n"
                 + "Account Number : " + accountNumber + "\n"
